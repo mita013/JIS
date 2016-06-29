@@ -1,0 +1,73 @@
+<div class="row testimonial">
+    <div class="col-sm-12">
+    <div class="wow fadeInDown"  data-wow-delay="0.5s">
+        <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
+            <h4>Daftar CV</h4>
+        </div>
+        <div class="row jobs">
+            <div class="col-md-12">
+                <div class="job-posts table-responsive">
+                    <table class="table">
+                        <tr class="odd wow fadeInUp" data-wow-delay="1s" ng-repeat="cvs in cv">
+                            <td class="tbl-logo"></td>
+                            <td class="tbl-title"><h4>{{cvs.nama_lengkap}}<br><span class="job-type">{{cvs.angkatan}}</span></h4></td>
+                            <td><p>{{cvs.asal_sekolah}}</p></td>
+                            <td class="tbl-apply"><a href ng-click="lihatCV(cvs)" ng-model="cvs.username" >Lihat</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HASIL LIHAT CV -->
+    <div class="panel panel-primary wow fadeInDown" data-wow-delay="1" ng-show="formCV" style="padding:15px">
+        <a href ng-click="formCV=false"><button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></a>
+        <div class="panel-body" ng-repeat="hs in hasilCV | limitTo:1">
+            <h3>Profil Lengkap {{hs.nama_lengkap}}</h3>
+            <table class="table">
+                <tr>
+                    <td>Nama</td>
+                    <td>: {{hs.nama_lengkap}}</td>
+                </tr>
+                <tr>
+                    <td>Tempat, tanggal lahir</td>
+                    <td>: {{hs.ttl}}</td>
+                </tr>
+                <tr>
+                    <td>Angkatan</td>
+                    <td>: {{hs.angkatan}}</td>
+                </tr>
+                <tr>
+                    <td>Asal Sekolah</td>
+                    <td>: {{hs.asal_sekolah}}</td>
+                </tr>
+                <tr>
+                    <td>Jurusan</td>
+                    <td>: {{hs.jurusan}}</td>
+                </tr>
+                <tr>
+                    <td>Jenis Kelamin</td>
+                    <td>: {{hs.jenis_kelamin}}</td>
+                </tr>
+                <tr>
+                    <td>No Telp.</td>
+                    <td>: {{hs.no_tlp}}</td>
+                </tr>
+                <tr>
+                    <td>Agama</td>
+                    <td>: {{hs.agama}}</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>: {{hs.email}}</td>
+                </tr>
+                <tr>
+                    <td>Alamat</td>
+                    <td>: {{hs.alamat}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    </div>
+</div>

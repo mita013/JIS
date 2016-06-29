@@ -1,0 +1,119 @@
+<div class="container">
+    <h3>Silakan masukkan kata kunci untuk mencari lowongan pekerjaan</h3>
+    <div class="search-form wow pulse" data-wow-delay="0.8s">
+        <form action="" class=" form-inline">
+            <div class="form-group">
+                <input type="text" class="form-control"  ng-model="c.kunci" name="kunci" placeholder="Masukkan kata kunci">
+            </div>
+            <input type="submit" class="btn" ng-click="cariLoker(c)" value="Cari">
+        </form>
+    </div>
+    
+    <div class="col-md-12 wow fadeInDown" data-wow-delay="0.5s" ng-show="formcari">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div ng-repeat="hs in hasilCari">
+                    <a href ng-click="lihatCari(hs)" ng-model="hs.id" ><h4>{{hs.posisi}}</h4></a>
+                    <p>{{hs.nama}}</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 panel panel-default wow fadeInDown" data-wow-delay="0.5s" ng-repeat="hs in siLoker | limitTo:1" ng-show="formlihat" style="padding:15px">
+        <a href ng-click="formlihat=false"><button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></a>
+        <div class="panel-body">
+        <table class="col-md-12">
+                <tr>
+                    <td valign="top" class="col-md-2">Posisi</td>
+                    <td valign="top">:</td><td valign="top" style="padding-left:20px"> {{hs.posisi}}</td>
+                </tr>
+                <tr>
+                    <td valign="top" class="col-md-2">Perusahaan</td>
+                    <td valign="top">:</td><td valign="top" style="padding-left:5px"> <a href ng-click="infoCompcari(hs)" ng-model="hs.username">{{hs.nama}}</a></td>
+                </tr>
+                <tr>
+                    <td valign="top" class="col-md-2">Kuota</td>
+                    <td valign="top">:</td><td valign="top" style="padding-left:20px"> {{hs.kuota}}</td>
+                </tr>
+                <tr>
+                    <td valign="top" class="col-md-2">Usia</td>
+                    <td valign="top">:</td><td valign="top" style="padding-left:20px"> {{hs.usia}}</td>
+                </tr>
+                <tr>
+                    <td valign="top" class="col-md-2">Jenis Kelamin</td>
+                    <td valign="top">:</td><td valign="top" style="padding-left:20px"> {{hs.jenis_kelamin}}</td>
+                </tr>
+                <tr>
+                    <td valign="top" class="col-md-2">Persyaratan</td>
+                    <td valign="top">:</td>
+                    <td style="padding-left:20px">
+                        <ul style="list-style-type:circle">
+                            <li ng-repeat="sy in syarat | split">
+                                {{sy}}
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top" class="col-md-2">Keterangan</td>
+                    <td valign="top">:</td>
+                    <td style="padding-left:20px"> 
+                        <ul style="list-style-type:circle">
+                            <li ng-repeat="k in terang | split">
+                                {{k}}
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <table class="panel panel-default col-md-12 wow fadeInDown" data-wow-delay="0.5s" style="padding:15px" ng-show="forminfocari" ng-repeat="i in hasilInfocari | limitTo:1">
+                <tr>
+                    <td colspan="3">
+                        <a href ng-click="forminfocari=false"><button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nama Perusahaan</td>
+                    <td> :</td>
+                    <td>{{i.nama}}</td>
+                </tr>
+                <tr>
+                    <td>Alamat</td>
+                    <td> :</td>
+                    <td>{{i.alamat}}</td>
+                </tr>
+                <tr>
+                    <td>No Telepon</td>
+                    <td> :</td>
+                    <td>{{i.no_tlp}}</td>
+                </tr>
+                <tr>
+                    <td>Industri</td>
+                    <td> :</td>
+                    <td>{{i.industry}}</td>
+                </tr>
+                <tr>
+                    <td>Overview</td>
+                    <td> :</td>
+                    <td>{{i.overview}}</td>
+                </tr>
+                <tr>
+                    <td>No. Ijin Surat</td>
+                    <td> :</td>
+                    <td>{{i.no_ijin_surat}}</td>
+                </tr>
+                <tr>
+                    <td>Website</td>
+                    <td> :</td>
+                    <td><a ng-href="http://{{i.website}}" target="_blank">{{i.website}}</a></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td> :</td>
+                    <td>{{i.email}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

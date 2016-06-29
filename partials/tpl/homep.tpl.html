@@ -1,0 +1,153 @@
+<div class="row testimonial">
+<div class="col-sm-12">
+    <div class="col-sm-8">
+        <div class="panel panel-default wow fadeInUp" style="border-radius:2px" data-wow-delay=".7s">
+            <div class="panel-body" ng-repeat="person in personal | limitTo:1">
+                <div class="col-md-8">
+                    <a href style="text-decoration:none;"><h4>{{person.nama_lengkap}}</h4></a>
+                    <p>{{person.jurusan}} ({{person.angkatan}})</p>
+                    <p>{{person.asal_sekolah}}</p>
+                </div>
+                <div class="col-md-4">
+                    <a href ng-click="perbarui()" style="text-decoration:none">
+                        <span class="label label-warning">Perbarui Profil Saya</span>
+                    </a>
+                </div>
+            </div>
+            <div class="panel-footer" style="min-height:50px">
+                <div class="col-xs-4">
+                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;Undangan Wawancara
+                </div>
+                <div class="col-xs-4">
+                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;Jadwal Wawancara
+                </div>
+                <div class="col-xs-4">
+                    <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;Lamaran
+                </div>
+            </div>
+        </div>
+
+        <!-- lihat loker -->
+        <div class="panel panel-default wow fadeInUp" ng-show="formhasil" style="padding:15px" data-wow-delay="0.5s">
+                <a href ng-click="formhasil=false"><button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></a>
+                <div class="panel-body" ng-repeat="hs in hasilLoker | limitTo:1">
+                    <table class="col-md-12">
+                        <tr>
+                            <td valign="top" class="col-md-2">Posisi</td>
+                            <td valign="top">:</td><td valign="top" style="padding-left:20px"> {{hs.posisi}}</td>
+                        </tr>
+                        <tr>
+                            <td valign="top" class="col-md-2">Perusahaan</td>
+                            <td valign="top">:</td><td valign="top" style="padding-left:20px"> <a href ng-click="infoComp(hs)" ng-model="hs.username">{{hs.nama}}</a></td>
+                        </tr>
+                        <tr>
+                            <td valign="top" class="col-md-2">Kuota</td>
+                            <td valign="top">:</td><td valign="top" style="padding-left:20px"> {{hs.kuota}}</td>
+                        </tr>
+                        <tr>
+                            <td valign="top" class="col-md-2">Usia</td>
+                            <td valign="top">:</td><td valign="top" style="padding-left:20px"> {{hs.usia}}</td>
+                        </tr>
+                        <tr>
+                            <td valign="top" class="col-md-2">Jenis Kelamin</td>
+                            <td valign="top">:</td><td valign="top" style="padding-left:20px"> {{hs.jenis_kelamin}}</td>
+                        </tr>
+                        <tr>
+                            <td valign="top" class="col-md-2">Persyaratan</td>
+                            <td valign="top">:</td>
+                            <td style="padding-left:5px">
+                                <ul style="list-style-type:circle">
+                                    <li ng-repeat="sy in persyaratan | split">
+                                        {{sy}}
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top" class="col-md-2">Keterangan</td>
+                            <td valign="top">:</td>
+                            <td style="padding-left:5px"> 
+                                <ul style="list-style-type:circle">
+                                    <li ng-repeat="k in keterangan | split">
+                                        {{k}}
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="panel panel-default col-md-12 wow fadeInDown"  data-wow-delay="0.5s" style="padding:15px" ng-show="forminfo" ng-repeat="i in hasilInfo | limitTo:1">
+                        <tr>
+                            <td colspan="3">
+                                <button ng-click="forminfo=false" type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Nama Perusahaan</td>
+                            <td> :</td>
+                            <td>{{i.nama}}</td>
+                        </tr>
+                        <tr>
+                            <td>Alamat</td>
+                            <td> :</td>
+                            <td>{{i.alamat}}</td>
+                        </tr>
+                        <tr>
+                            <td>No Telepon</td>
+                            <td> :</td>
+                            <td>{{i.no_tlp}}</td>
+                        </tr>
+                        <tr>
+                            <td>Industri</td>
+                            <td> :</td>
+                            <td>{{i.industry}}</td>
+                        </tr>
+                        <tr>
+                            <td>Overview</td>
+                            <td> :</td>
+                            <td>{{i.overview}}</td>
+                        </tr>
+                        <tr>
+                            <td>No. Ijin Surat</td>
+                            <td> :</td>
+                            <td>{{i.no_ijin_surat}}</td>
+                        </tr>
+                        <tr>
+                            <td>Website</td>
+                            <td> :</td>
+                            <td><a ng-href="http://{{i.website}}" target="_blank">{{i.website}}</a></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td> :</td>
+                            <td>{{i.email}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+    </div>
+    
+    
+    <!-- Bagian Kanan Lowongan Kerja -->
+    <div class="col-sm-4">
+        <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
+            <h4>Lowongan Kerja</h4>
+        </div>
+        <div class="row jobs">
+            <div class="col-md-12">
+                <div class="job-posts table-responsive">
+                    <table class="table">
+                        <tr class="odd wow fadeInUp" data-wow-delay="1s" ng-repeat="lk in loker | limitTo:5">
+                            <td class="tbl-logo"></td>
+                            <td class="tbl-title"><h4>{{lk.posisi}}<br><span class="job-type">{{lk.kuota}} orang</span></h4></td>
+                            <td><p>di {{lk.nama}}</p></td>
+                            <td class="tbl-apply"><a href ng-click="lihatLoker(lk);forminfo=false" ng-model="lk.id">Lihat</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+</div>

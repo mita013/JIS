@@ -1,0 +1,22 @@
+<div class="row testimonial">
+    <div class="panel panel-primary wow fadeInDown"  data-wow-delay="0.5s">
+        <div class="panel-body">
+        <h3>Lowongan Pekerjaan Perusahaan Anda</h3>
+        <table>
+            <tr ng-repeat="lok in lowongan">
+                <td>
+                <a href style="text-decoration:none"><h4>{{lok.posisi}}</h4></a>
+                </td>
+                <td>
+                <ul class="list-group">
+                    <li class="list-group-item">Kuota {{lok.kuota}}</li>
+                    <li class="list-group-item">Usia {{lok.usia}}</li>
+                    <li class="list-group-item">Keterangan: {{lok.keterangan}}</li>
+                    <li class="list-group-item">Persyaratan: {{lok.persyaratan}}</li>
+                </ul>
+                </td>
+            </tr>
+        </table>
+        </div>
+    </div>
+</div>

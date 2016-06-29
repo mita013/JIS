@@ -1,0 +1,43 @@
+<!-- HEADER AWAL -->
+	<div class="page-header" style="margin-top:0px;margin-bottom:-50px;">
+		<!-- <h1 align="center" data-toggle="tooltip" data-placement="right" title="Job Information System">
+            Job Information System
+            <img src="image/logoums.png" style="height:35px;width:35px;">
+            <small>Kunduran</small>
+        </h1> -->
+		<div class="col-md-8 col-md-offset-2" style="padding:15px;">
+			<div style="padding:15px;float:left;">
+				<a href ng-click="beranda=true;cari=false;perusahaan=false;cv=false">Beranda</a>
+			</div>
+			<div style="padding:15px;float:left;">
+				<a href ng-click="beranda=false;cari=true;perusahaan=false;cv=false">Cari Lowongan</a>
+			</div>
+			<div style="padding:15px;float:left;">
+				<a href ng-click="beranda=false;cari=false;perusahaan=true;cv=false">Profil Perusahaan</a>
+			</div>
+			<div style="padding:15px;float:left;">
+				<a href ng-click="beranda=false;cari=false;perusahaan=false;cv=true">CV</a>
+			</div>
+			<div style="text-align:right;padding:15px;">
+			<a href ng-click="logout()">Logout</a>
+			</div>
+		</div>
+	</div>
+	<!-- HEADER AKHIR -->
+
+	<div style="margin-top:0;" class="col-lg-12">
+			<div beranda-directive ng-init="beranda=true" ng-show="beranda">
+			</div>
+			<div cari-directive ng-show="cari">
+			</div>
+			<div perusahaan-directive ng-show="perusahaan">
+			</div>
+			<div cv-directive ng-show="cv">
+			</div>
+    </div>
+        
+
+	<!-- FOOTER AWAL -->
+	<footer>
+	</footer>
+	<!-- FOOTER AKHIR -->

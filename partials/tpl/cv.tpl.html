@@ -1,0 +1,126 @@
+ <div style="padding-top:30px">
+      <div class="inner">
+            <div class="wrap clearFix">
+                <div class="col-md-6 panel" ng-init="cv" ng-show="cv" style="border-radius:0px">
+                    <h3>
+                        DATA PERSONAL
+                    </h3>
+                    <a href ng-click="formedit=true">Edit</a>
+                    <table class="table table-hover" ng-repeat="profil in personal | limitTo:quantity">
+                        <tr>
+                            <td width="30%">Nama Lengkap</td>
+                            <td>:</td>
+                            <td>{{profil.nama_lengkap}}</td>
+                        </tr>
+                        <tr>
+                            <td>Tempat, Tanggal Lahir</td>
+                            <td>:</td>
+                            <td>{{profil.ttl}}</td>
+                        </tr>
+                        <tr>
+                            <td>Alamat</td>
+                            <td>:</td>
+                            <td>{{profil.alamat}}</td>
+                        </tr>
+                        <tr>
+                            <td>Agama</td>
+                            <td>:</td>
+                            <td>{{profil.agama}}</td>
+                        </tr>
+                        <tr>
+                            <td>No. Telepon</td>
+                            <td>:</td>
+                            <td>{{profil.no_tlp}}</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>:</td>
+                            <td>{{profil.email}}</td>
+                        </tr>
+                        <tr>
+                            <td>Asal Sekolah</td>
+                            <td>:</td>
+                            <td>{{profil.asal_sekolah}}</td>
+                        </tr>
+                        <tr>
+                            <td>Jurusan</td>
+                            <td>:</td>
+                            <td>{{profil.jurusan}}</td>
+                        </tr>
+                        <tr>
+                            <td>Angkatan</td>
+                            <td>:</td>
+                            <td>{{profil.angkatan}}</td>
+                        </tr>
+                        <tr>
+                            <td>Jenis Kelamin</td>
+                            <td>:</td>
+                            <td>{{profil.jenis_kelamin}}</td>
+                        </tr>
+                        </table>
+                </div>
+                <p ng-show="halo"></p>
+                <div class="panel panel-info col-md-5 col-md-offset-1 wow fadeInUp" data-wow-delay="0.5s" ng-show="formedit" style="border-radius:0px">
+                    <h3>EDIT DATA PERSONAL</h3>
+                    <form style="margin-bottom:20px;" name="form1" ng-repeat="profil in personal | limitTo:quantity" role="form" novalidate>
+                        <!-- <div ng-repeat="personal in user | limitTo:quantity"> -->
+                            <!-- <input type="text" name="id" ng-model="user.id">  -->
+                        <!-- </div> -->
+                        <div style="margin-top: 15px" class="form-group">
+                            <label for="namalengkap">Nama Lengkap</label>
+                            <input type="hidden" ng-model="profil.username" value="{{profil.username}}">
+                            <input type="text" class="form-control" name="namalengkap" ng-model="profil.nama_lengkap" placeholder="Nama Lengkap" required />
+                        </div>
+                        <div style="margin-top: 15px" class="form-group">
+                            <label>Tempat, Tanggal Lahir</label>
+                            <input type="text" class="form-control" name="ttl" ng-model="profil.ttl" placeholder="Tempat, tanggal lahir" required />
+                        </div>
+                        <div style="margin-top: 15px" class="form-group">
+                            <label>Alamat</label>
+                            <textarea class="form-control" name="alamat" ng-model="profil.alamat" cols="40" rows="3">
+                            </textarea>
+                        </div>
+
+                        <div style="margin-top: 15px" class="form-group">
+                            <label>Agama</label>
+                            <input type="text" name="agama" class="form-control" ng-model="profil.agama" placeholder="Agama" required />
+                        </div>
+                        <div style="margin-top: 15px" class="form-group">
+                            <label>No. Telepon</label>
+                            <input type="text" name="telepon" class="form-control" ng-model="profil.no_tlp" placeholder="Telepon" required />
+                        </div>
+                        <div style="margin-top: 15px" class="form-group">
+                            <label>Email</label>
+                            <input type="text" name="email" class="form-control" ng-model="profil.email" placeholder="Email" required />
+                        </div>
+                        <div style="margin-top: 15px" class="form-group">
+                            <label>Asal sekolah</label>
+                            <input type="text" name="asal_sekolah" class="form-control" ng-model="profil.asal_sekolah" placeholder="Asal sekolah" required />
+                        </div>
+
+                        <div style="margin-top: 15px" class="form-group">
+                            <label>Jurusan</label>
+                            <input type="text" name="jurusan" class="form-control" ng-model="profil.jurusan" placeholder="Jurusan" required />
+                        </div>
+                        <div style="margin-top: 15px" class="form-group">
+                            <label>Angkatan</label>
+                            <input type="text" name="organisasi" class="form-control" ng-model="profil.angkatan" placeholder="Angkatan" />
+                        </div>
+                        <div style="margin-top: 15px" class="form-group">
+                            <label>Jenis Kelamin</label>
+                            <input type="text" name="jenis_kelamin" class="form-control" ng-model="profil.jenis_kelamin" placeholder="Jenis kelamin" />
+                        </div>
+                        <!-- <div style="margin-top: 15px" class="form-group">
+                            <label>Foto</label>
+                            <input type="file" name="foto" class="form-control" ng-model="profil.foto" placeholder="Foto" />
+                        </div> -->
+                        <div style="margin-top: 15px" class="form-group">
+                            <button type="submit" class="btn btn-info" ng-click="editCV(profil)">
+                                Simpan
+                            </button>
+                        </div>
+                    </form>
+                </div>
+          </div>
+     </div>
+</div>

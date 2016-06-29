@@ -1,0 +1,121 @@
+ <div style="padding-top:30px">
+      <div class="inner">
+            <div class="wrap clearFix">
+<div class="panel col-md-6">
+    <center>
+        <h3>Profil Perusahaan</h3>
+    </center>
+	<div class="panel-body">
+		<table class="table" ng-repeat="profil in company | limitTo:quantity">
+			<tr>
+				<td class="col-md-3">Nama Perusahaan</td>
+				<td align="right">:</td>
+				<td>{{profil.nama}}</td>
+			</tr>
+			<tr>
+				<td>Alamat</td>
+				<td align="right">:</td>
+				<td>{{profil.alamat}}</td>
+			</tr>
+			<tr>
+				<td>No. Telepon</td>
+				<td align="right">:</td>
+				<td>{{profil.no_tlp}}</td>
+			</tr>
+			<tr>
+				<td>Industri</td>
+				<td align="right">:</td>
+				<td>{{profil.industry}}</td>
+			</tr>
+			<tr>
+				<td>No. Ijin Surat</td>
+				<td align="right">:</td>
+				<td>{{profil.no_ijin_surat}}</td>
+			</tr>
+			<tr>
+				<td>Website</td>
+				<td align="right">:</td>
+				<td>{{profil.website}}</td>
+			</tr>
+			<tr>
+				<td>email</td>
+				<td align="right">:</td>
+				<td>{{profil.email}}</td>
+			</tr>
+			<tr>
+				<td>Overview</td>
+				<td align="right">:</td>
+				<td>{{profil.overview}}</td>
+			</tr>
+		</table>
+		<a href class="btn btn-info" ng-click="thisedit=true">Edit Profil</a>
+	</div>
+</div>
+
+<!-- EDIT PROFIL PERUSAHAAN -->
+<div class="panel panel-default col-md-5 col-md-offset-1 wow fadeInLeft"  data-wow-delay="0.5s" ng-show="thisedit">
+	<center>
+		<h3>Edit Profil Perusahaan</h3>
+	</center>
+	<div class="panel-body">
+		<!-- <form name="editForm" id="editForm" ng-submit="klikEdit(editForm)"> -->
+		<!-- <form> -->
+			<table class="table" ng-repeat="profil in company | limitTo:quantity">
+				<tr>
+					<td class="col-md-3">Nama Perusahaan</td>
+					<td align="right">:</td>
+					<td>
+						<input type="hidden" ng-model="profil.username" value="{{profil.username}}">
+						<input type="text" ng-model="profil.nama" value="{{profil.nama}}">
+					</td>
+				</tr>
+				<tr>
+					<td>Alamat</td>
+					<td align="right">:</td>
+					<td><input type="text" ng-model="profil.alamat" value="{{profil.alamat}}"></td>
+				</tr>
+				<tr>
+					<td>No. Telepon</td>
+					<td align="right">:</td>
+					<td><input type="text" ng-model="profil.no_tlp" value="{{profil.no_tlp}}"></td>
+				</tr>
+				<tr>
+					<td>Industri</td>
+					<td align="right">:</td>
+					<td><input type="text" ng-model="profil.industry" value="{{profil.industry}}"></td>
+				</tr>
+				<tr>
+					<td>No. Ijin Surat</td>
+					<td align="right">:</td>
+					<td><input type="text" ng-model="profil.no_ijin_surat" value="{{profil.no_ijin_surat}}"></td>
+				</tr>
+				<tr>
+					<td>Website</td>
+					<td align="right">:</td>
+					<td><input type="text" ng-model="profil.website" value="{{profil.website}}"></td>
+				</tr>
+				<tr>
+					<td>email</td>
+					<td align="right">:</td>
+					<td><input type="text" ng-model="profil.email" value="{{profil.email}}"></td>
+				</tr>
+				<tr>
+					<td>Overview</td>
+					<td align="right">:</td>
+					<td>
+						<textarea cols="22" rows="3" ng-model="profil.overview">{{profil.overview}}</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3">
+						<input type="submit" class="btn btn-info" value="Simpan" ng-click="klikEdit(profil)">
+					</td>
+				</tr>
+			</table>
+			
+		<!-- </form> -->
+	</div>
+</div>
+</div>
+</div>
+</div>

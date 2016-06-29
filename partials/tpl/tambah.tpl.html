@@ -1,0 +1,54 @@
+<div style="padding-top:30px;min-height:550px">
+    <div class="inner">
+        <div class="wrap clearFix">
+<div class="col-md-6 col-md-offset-3 panel panel-default wow fadeInUp"  data-wow-delay="0.5s">
+	<center><h3>Tambah Lowongan Pekerjaan</h3></center>
+	<div class="panel-body">
+	<form style="margin-bottom:20px;" name="form1" role="form" novalidate>
+		<!-- data id muncul tetapi tidak bisa disimpan (ng-model(untk menyimpan dn mmengambil data) tidak menyimpan data id, data hanya ditampilkan melalui ng-init(inisialiasi)) -->
+				<!--<div ng-repeat="tes in user | limitTo:quantity">
+					<input type="text" name="id" ng-model="loker.id" ng-init="loker.id = tes.id"> 
+				</div> -->
+		<!--  -->
+		<div style="margin-top: 15px" class="form-group">
+	    	<label for="username">Username</label>
+	    	<input type="text" class="form-control" name="username" ng-model="loker.username" placeholder="Username" required />
+	    </div>
+	    <div style="margin-top: 15px" class="form-group">
+	    	<label for="posisi">Posisi</label>
+	    	<input type="text" class="form-control" name="posisi" ng-model="loker.posisi" placeholder="Posisi" required />
+	    </div>
+	    <div style="margin-top: 15px" class="form-group">
+	    	<label>Kuota</label>
+	    	<input type="text" class="form-control" name="kuota" ng-model="loker.kuota" placeholder="Kuota" required />
+	    </div>
+	    <div style="margin-top: 15px" class="form-group">
+	    	<label>Usia</label>
+	    	<input type="text" class="form-control" name="usia" ng-model="loker.usia" placeholder="Usia" required />
+	    </div>
+
+	    <div style="margin-top: 15px" class="form-group">
+	    	<label>Jenis Kelamin</label>
+	    	<input type="text" name="jeniskelamin" class="form-control" ng-model="loker.jeniskelamin" placeholder="Jenis Kelamin" required />
+	    </div>
+	    <div style="margin-top: 15px" class="form-group">
+	    	<label>Persyaratan</label>
+	    	<textarea class="form-control" name="persyaratan" ng-model="loker.persyaratan" cols="40" rows="3">
+			</textarea>
+	    </div>
+	    <div style="margin-top: 15px" class="form-group">
+	    	<label>Keterangan</label>
+	    	<textarea class="form-control" name="keterangan" ng-model="loker.keterangan" cols="40" rows="3">
+			</textarea>
+	    </div>
+	   	<div style="margin-top: 15px" class="form-group">
+	    	<button type="submit" class="btn btn-info" ng-click="tambah(loker)">
+	            Simpan
+	        </button>
+	    </div>
+	</form>
+</div>
+</div>
+</div>
+</div>
+</div>

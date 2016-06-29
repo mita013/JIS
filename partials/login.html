@@ -1,0 +1,210 @@
+<div class="header-connect">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-default" style="min-height:100px" style="background-color:gray">
+  <div class="container">
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="image/logo.png" alt="" width="80%"></a>
+      <a class="navbar-brand" href="#"><h3>Job Information System</h3></a>  
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class="button navbar-right">
+          <button class="navbar-btn nav-button wow bounceInRight login" ng-click="logins=true;daftars=false;home=false" data-wow-delay="0.8s">Login</button>
+          <button class="navbar-btn nav-button wow fadeInRight" ng-click="logins=false;daftars=true;home=false;klik=true" data-wow-delay="0.6s">Daftar</button>
+      </div>
+        <ul class="main-nav nav navbar-nav navbar-right">
+            <li class="wow fadeInDown" data-wow-delay="0s"><a href ng-click="logins=false;daftars=false;home=true">Home</a></li>
+            <li style="min-width:50px"></li>
+        </ul>
+    </div>
+  </div>
+</nav>
+
+
+        <div id="intro" ng-init="home=true" ng-show="home">
+          <div class="inner" style="min-height:640px">
+            <div class="wrap clearFix" style="min-height:640px">
+            <div class="panel-body">
+                <div class="col-md-8" style="margin-top:30px">
+                    <div class="col-md-10 col-md-offset-1 panel panel-info" align="center" style="opacity:0.5"  data-wow-delay="1s">
+                        <div class="panel-body" ng-repeat="jml in jumlahLoker | limitTo:1" style="color:black">
+                            <h3><b>{{jml.jumlah}}</b> lowongan pekerjaan di seluruh Indonesia</h3>
+                        </div>
+                    </div>
+                <div class="row how-it-work text-center">
+                    <div class="col-md-10 col-md-offset-1 single-work wow fadeInUp"  data-wow-delay="1s">
+                    <img src="theme/img/how-work1.png" alt="">
+                    <h3>Keterangan singkat</h3> 
+                    <p>Job Information System merupakan sebuah informasi pekerjaan yang ditujukan kepada siswa-siswi/alumni SMA/SMK se-kecamatan Kunduran, dengan  tujuan untuk membantu dalam mencari pekerjaan dengan lebih cepat</p>
+                </div>
+                </div>
+                </div>
+                
+                <div class="container col-md-4">
+                    <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
+                        <h4>Lowongan Kerja</h4>
+                    </div>
+                    <div class="row jobs">
+                        <div class="col-md-12">
+                            <div class="job-posts table-responsive">
+                                <table class="table">
+                                    <tr class="even wow fadeInUp" data-wow-delay="1s" ng-repeat="lk in loker | limitTo:5">
+                                        <td class="tbl-logo"></td>
+                                        <td class="tbl-title"><h4>{{lk.posisi}}<br><span class="job-type">{{lk.kuota}} orang</span></h4></td>
+                                        <td><p>di {{lk.nama}}</p></td>
+                                        <td class="tbl-apply"><a href ng-click="loginDulu()">Lihat</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+            </div>
+            </div>
+        </div>
+	
+		<!-- LOGIN -->
+    <div class="search-form wow pulse" data-wow-delay="0.8s" ng-show="logins" ng-init="logins=false">
+      <div class="inner" style="min-height:640px" style="border:5px;border-radius:10px">
+        <div class="wrap clearFix" style="min-height:640px">
+        <div class="col-md-4 col-md-offset-4">
+                <h4>LOGIN</h4>
+            <div>
+                <form class=" form-inline" name="form2" role="form" novalidate>
+                    <div style="margin-top: 25px" class="input-group">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-user"></i>
+                    </span> 
+                    <input type="text" class="form-control" name="username" ng-model="user.username" placeholder="Username" required />
+                    </div>
+                    <div style="margin-top: 25px" class="input-group">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-lock"></i>
+                    </span> 
+                    <input type="password" class="form-control" name="password" ng-model="user.password" placeholder="Password" required />
+                    </div><br>
+                    <div class="form-group" style="margin-top:15px;" align="center">
+                        <button type="submit" class="btn" ng-disabled="form2.$invalid" ng-click="login(user)">
+                            Login
+                        </button>
+                    </div>
+                    <p class="error">{{msgtxt}}</p>
+					<a href ng-click="home=true;logins=false;daftars=false;">Home</a>
+                </form>    
+            </div>
+        </div>
+          </div>
+        </div>
+        </div>
+		
+		<!-- DAFTAR -->
+        <div class="search-form wow pulse" data-wow-delay="0.8s" ng-show="daftars" ng-init="daftars=false">
+      <div class="inner" style="min-height:640px">
+        <div class="wrap clearFix" style="min-height:640px">
+		<div class="col-md-4 col-md-offset-4">
+            <h4>DAFTAR</h4>
+            <div>
+                <form class=" form-inline" name="form1" role="form" novalidate>
+                    <div style="margin-top: 15px" class="input-group">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-user"></i>
+                    </span> 
+                    <input type="text" class="form-control" name="username" ng-model="user.username" placeholder="Username" required />
+                    </div>
+                    <div style="margin-top: 15px" class="input-group">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-lock"></i>
+                    </span> 
+                    <input type="password" class="form-control" name="password" ng-model="user.password" placeholder="Password" required />
+                    </div>
+
+
+                    <div style="margin-top: 15px" class="input-group">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-file"></i>
+                    </span> 
+                    <input type="text" class="form-control" name="email" ng-model="user.email" placeholder="Email" required />
+                    </div>
+                    <br>
+                    <div style="margin-top: 15px" class="input-group form-group">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-tag"></i>
+                    </span> 
+                    <select name="tipe" class="form-control" ng-init="user.tipe = options[0]" 
+                            ng-model="user.tipe" 
+                            ng-options="option for option in options">
+                    </select>
+                    </div>
+
+                    <!-- VALIDASI COMPANY -->
+                    <div ng-show="validcompany">
+                         <div style="margin-top: 15px" class="input-group">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-user"></i>
+                        </span> 
+                        <input type="text" class="form-control" name="nama" ng-model="user.nama" placeholder="Nama Perusahaan" required />
+                        </div>
+                        <div style="margin-top: 15px" class="input-group">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-lock"></i>
+                        </span> 
+                        <input type="text" class="form-control" name="industri" ng-model="user.industri" placeholder="Industri" required />
+                        </div>
+
+
+                        <div style="margin-top: 15px" class="input-group">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-file"></i>
+                        </span> 
+                        <input type="text" class="form-control" name="telepon" ng-model="user.telepon" placeholder="Nomor Telepon" required />
+                        </div>
+
+                        <div style="margin-top: 15px" class="input-group">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-file"></i>
+                        </span> 
+                        <input type="text" class="form-control" name="surat" ng-model="user.surat" placeholder="Nomor Ijin Surat" required />
+                        </div>
+
+                        <div style="margin-top: 15px" class="input-group">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-file"></i>
+                        </span> 
+                        <textarea class="form-control" name="alamat" ng-model="user.alamat" placeholder="Alamat" cols="20" rows="4" required>
+                        </textarea>
+                        </div>
+                        <br>
+                        <div class="form-group" style="margin-top:15px;" ng-show="klikc" align="center">
+                            <button type="submit" class="btn btn-default" ng-click="daftarc(user)">
+                                Daftar
+                            </button>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group" style="margin-top:15px;" ng-show="klik" align="center">
+                        <button type="submit" class="btn btn-default" ng-click="daftar(user)">
+                            Daftar
+                        </button>
+                    </div>
+                    <p class="error">{{msgtxt}}</p>
+                </form>    
+            </div>
+          </div>
+        </div>
+        </div>
+        </div>
